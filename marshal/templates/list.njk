@@ -1,0 +1,10 @@
+<div class="list_container">
+	{% for index, item in items %}
+		<div class="list_item">
+			<a href="/marshal/{{ index }}">
+				<div class="list_image"><img src="{{ item.image }}" /></div>
+				<div class="list_name">{{ item.name }}</div>
+			</a>
+		</div>
+	{% endfor %}
+</div>
