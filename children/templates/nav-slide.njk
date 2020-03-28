@@ -2,7 +2,7 @@
 <div class="nav-slide">
 <div class="nav-slide-scroll">
 {% for index, item in items %}
-	<a id="nav-{{ index }}" class="nav-slide-item{% if loop.index0 == id %} active{% endif %}" href="{{ baseUrl }}/{{loop.index0}}">{{ item.name }}
+	<a id="nav-{{ index }}" class="nav-slide-item{% if loop.index0 == id %} active{% endif %}" href="{{ baseUrl }}/{{ index }}">{{ item.name }}
 	</a>
 {% endfor %}
 </div>

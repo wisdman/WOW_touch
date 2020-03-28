@@ -168,6 +168,7 @@ const router = new UniversalRouter(routes)
 
 router.resolve(window.location).then(html => {
   document.getElementById("app").innerHTML = html // renders: <h1>Posts</h1>
+
   addScroll()
 
   document.querySelectorAll(".openInNewTab").forEach(node => {
@@ -181,6 +182,7 @@ router.resolve(window.location).then(html => {
   })
 
 })
+
 
 
 

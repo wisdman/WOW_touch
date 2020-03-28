@@ -1,18 +1,10 @@
-<div class="list_container">
+<div class="list_container" style="width: calc({{ items | length}} * 355px + 144px)">
 	{% for index, item in items %}
-		{% if loop.index0 % 5 === 0 %}
-		<div class="list_section" id="row{{ loop.index0 // 5 }}">
-
-		{% endif %}
 		<div class="list_item">
 			<a href="/marshal/{{ loop.index }}">
 				<div class="list_image"><img src="{{ item.image }}" /></div>
 				<div class="list_name">{{ item.name }}</div>
 			</a>
 		</div>
-		{% if loop.index % 5 === 0 %}
-
-		</div>
-		{% endif %}
 	{% endfor %}
 </div>
