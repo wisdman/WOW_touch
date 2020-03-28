@@ -1,0 +1,58 @@
+{
+	"items": {
+		"1": {
+			"name": "Валя Котик",
+			"image": "/children/images/Валя Котик.jpeg",
+			"text": "texts/1_Kotik.txt",
+			"years": "11&nbsp;февраля 1930 г. — <br />11&nbsp;февраля 1944 г."
+		},
+		"2": {
+			"name": "Витя Коробков",
+			"image": "/children/images/Витя Коробков.jpeg",
+			"text": "texts/2_Korobkov.txt",
+			"years": "4&nbsp;марта 1929 г. — <br />9&nbsp;марта 1944 г."
+		},
+		"3": {
+			"name": "Володя Дубинин",
+			"image": "/children/images/Володя Дубинин.jpg",
+			"text": "texts/3_Dubinin.txt",
+			"years": "1927 г. — <br />январь 1942 г."
+		},
+		"4": {
+			"name": "Дмитрий Соколов",
+			"image": "/children/images/Дмитрий Соколов.jpg",
+			"text": "texts/4_Sokolov.txt",
+			"years": "24&nbsp;октября 1924 г. — <br />7&nbsp;февраля 1997 г."
+		},
+		"5": {
+			"name": "Лёня Голиков",
+			"image": "/children/images/Лёня Голиков.jpg",
+			"text": "texts/5_Golikov.txt",
+			"years": "17&nbsp;июня 1926 г. — <br />24&nbsp;января 1943 г."
+		},
+		"6": {
+			"name": "Нина Куковерова",
+			"image": "/children/images/Нина Куковерова.jpg",
+			"text": "texts/6_Kukoverova.txt",
+			"years": "1929 г. — <br />декабрь 1943 г."
+		},
+		"7": {
+			"name": "Петя Клыпа",
+			"image": "/children/images/Петя Клыпа.jpg",
+			"text": "texts/7_Klypa.txt",
+			"years": "23&nbsp;сентября 1926 г. — <br />??? (Пережил войну)"
+		},
+		"8": {
+			"name": "Сергей Алёшков",
+			"image": "/children/images/Сергей Алёшков.jpg",
+			"text": "texts/8_Aleshkov.txt",
+			"years": "1936 г. — <br />1&nbsp;февраля 1990 г."
+		},
+		"9": {
+			"name": "Юта Бондаровская",
+			"image": "/children/images/Юта Бондаровская.jpg",
+			"text": "texts/9_Bondarovskaya.txt",
+			"years": "6&nbsp;января 1928 г. — <br />27&nbsp;февраля 1944 г."
+		}
+	}
+}
