@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "local-web-server": "^4.0.0",
+    "mammoth": "^1.4.9",
     "normalize.css": "^8.0.1",
     "nunjucks": "^3.2.1",
     "universal-router": "^9.0.1"
