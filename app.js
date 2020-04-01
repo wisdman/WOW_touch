@@ -5,6 +5,8 @@ import blokada from '/blokada/main.js'
 
 nunjucks.configure({ autoescape: true });
 
+document.querySelector("html").style.zoom = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+
 const routes = [
   {
     path: '', // optional
@@ -53,9 +55,9 @@ const routes = [
     ]
   }
 ]
- 
+
 const router = new UniversalRouter(routes)
- 
+
 router.resolve(window.location).then(html => {
   document.getElementById("app").innerHTML = html // renders: <h1>Posts</h1>
 })
