@@ -8,7 +8,7 @@ nunjucks.configure({ autoescape: true });
 const routes = [
   {
     path: '', // optional
-    action: () => `<h1><a href="/marshal">02 Маршал</a></h1><h1><a href="/blokada">03 Блокадник</a></h1><h1><a href="/children">04 Ребенок войны</a></h1>`
+    action: () => `<ul style="margin: 90px;"><li><h1><a href="/marshal">02 Маршал</a></h1></li><li><h1><a href="/blokada">03 Блокадник</a></h1></li><li><h1><a href="/children">04 Ребенок войны</a></h1></li></ul>`
   },
   {
     path: '/marshal',

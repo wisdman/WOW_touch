@@ -228,3 +228,7 @@ top: 100%;
 .detail_text_block:not(:last-of-type) {
 	margin-bottom: 90px;
 }
+
+a {
+	color: #fff;
+}
