@@ -1,4 +1,4 @@
-.content::after {
+/*.content::after {
 	height: 100%;
 	width: 60px;
 	content: "";
@@ -42,12 +42,19 @@ left: 0;
 
 .content::-webkit-scrollbar-thumb {
     background-color: #000000;
-}
+}*/
 
 .list_container {
 	
 }
 
 .list_item {
+	margin-bottom: 90px;
+}
+/*.list_item {
 	width: 329px;
+}
+*/
+.list_nav_item {
+	word-spacing: 320px;
 }

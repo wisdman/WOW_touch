@@ -4,16 +4,14 @@
 
 		<div class="detail_item">
 			<div class="detail_header">
+				<div class="detail_pic"><img src="{{ image }}" /></div>
 				<div class="detail_name">{{ name }}</div>
 				<div class="detail_years">{{ years | safe }}</div>
 			</div>
 			<div class="detail_text">{{ text | safe }}</div>
 		</div>
-		<a href="{% if id > 1 %}{{ id - 1 }}{% else %}5{% endif %}" class="nav-arr nav-arr-left">
+		<a href="/marshal" class="nav-arr nav-arr-left">
 			<svg viewBox="0 0 70 70"><circle class="arr" cx="35" cy="35" r="34.5"/><path class="arr" d="M46.13 51.26l-19-17 19-17"/></svg>
-		</a>
-		<a href="{% if id < 5 %}{{ id + 1 }}{% else %}1{% endif %}" class="nav-arr nav-arr-right">
-			<svg viewBox="0 0 70 70"><circle class="arr" cx="35" cy="35" r="34.5"/><path class="arr" d="M26.72 17.26l19 17-19 17"/></svg>
 		</a>
 
 	</div>

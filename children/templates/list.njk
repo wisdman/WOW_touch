@@ -1,10 +1,23 @@
-<div class="list_container" style="width: calc({{ items | length}} * 364px + 162px)">
+<div class="list_container">
 	{% for index, item in items %}
+		{% if loop.index0 % 5 === 0 %}
+		<div class="list_section" id="row{{ loop.index0 // 5 }}">
+			{% if loop.index0 // 5 > 0 %}
+			<a href="#row{{ loop.index0 // 5 - 1 }}" class="nav-arr nav-arr-top"><svg viewBox="0 0 70 70"><circle class="arr" cx="35" cy="35" r="34.5"/><path class="arr" d="M46.13 51.26l-19-17 19-17"/></svg></a>
+			{% endif %}
+		{% endif %}
 		<div class="list_item">
 			<a href="/children/{{ index }}">
 				<div class="list_image"><img src="{{ item.image }}" /></div>
 				<div class="list_name">{{ item.name }}</div>
 			</a>
 		</div>
+		{% if loop.index % 5 === 0 %}
+			{% if loop.index0 // 5 < items | length // 5 %}
+			<a href="#row{{ loop.index0 // 5 + 1 }}" class="nav-arr nav-arr-bottom">
+			<svg viewBox="0 0 70 70"><circle class="arr" cx="35" cy="35" r="34.5"/><path class="arr" d="M26.72 17.26l19 17-19 17"/></svg></a>
+			{% endif %}
+		</div>
+		{% endif %}
 	{% endfor %}
 </div>

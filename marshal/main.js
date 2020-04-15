@@ -2,7 +2,7 @@ export default {
 	contentFile: "/content.json",
 	listTemplate: "/templates/list.njk",
 	detailTemplate: "/templates/detail.njk",
-	navTemplate: "/templates/nav.njk",
+	navTemplate: "/templates/nav-slide.njk",
 
 	getList: async function(url) {
 		console.log(url + this.contentFile);
@@ -48,6 +48,6 @@ export default {
 		console.log(txt);
 		item.text = txt.replace(/\u2028/g,"<br />");
 		item.id = content.id = parseInt(id);
-		return nunjucks.renderString(navTpl, content) + nunjucks.renderString(tpl, item);
+		return nunjucks.renderString(navTpl, {baseUrl: url, items: content['items'], id: id}) + nunjucks.renderString(tpl, item);
     }
 }

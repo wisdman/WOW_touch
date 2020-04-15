@@ -1,6 +1,7 @@
 const fs = require("fs").promises
 const path = require("path")
 const mammoth = require("mammoth")
+const request = require("request")
 
 const baseDir = "D:\\Work\\RMH\\WOW\\touch\\"
 
@@ -29,6 +30,24 @@ async function getAllDirectories(dir) {
   return dirs
 }
 
+function typograf(text) {
+  return new Promise(resolve => {
+    request.post({
+      url: "http://www.typograf.ru/webservice/",
+      form: {
+        text,
+        chr: "UTF-8",
+      }
+    }, function(err, _, body) {
+      if (err) {
+        console.error(`Typograf error: ${err}`)
+        resolve("")
+        return
+      }
+      resolve(body)
+    })
+  })
+}
 
 void async function main() {
 
@@ -48,10 +67,12 @@ void async function main() {
       const {value: content} = await mammoth.convertToHtml({path: file})
       const data = path.parse(file)
 
+      const tpContent = await typograf(content)
+
       const outObj = {
         ...data,
         directory: /[^\/\\]+$/.exec(data.dir)[0].replace(/\\+/g,'/'),
-        content,
+        tpContent,
       }
       filesOutput.push(outObj)
     }

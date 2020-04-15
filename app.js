@@ -60,6 +60,7 @@ const router = new UniversalRouter(routes)
 
 router.resolve(window.location).then(html => {
   document.getElementById("app").innerHTML = html // renders: <h1>Posts</h1>
+  addScroll()
 })
 
 
@@ -70,4 +71,21 @@ function includeCSS(aFile, aRel){
   style.rel = aRel || 'stylesheet'
   let head = window.document.getElementsByTagName('head')[0]
   head.appendChild(style)
+}
+
+function addScroll() {
+  const anchors = document.querySelectorAll('a[href*="#"]')
+
+  for (let anchor of anchors) {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault()
+      
+      const blockID = anchor.getAttribute('href').substr(1)
+      
+      document.getElementById(blockID).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    })
+  }
 }
