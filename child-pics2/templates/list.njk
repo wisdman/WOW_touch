@@ -1,0 +1,24 @@
+<div class="list_container">
+	{% for row in content %}
+	<div class="list_section" id="row{{ loop.index0 }}">
+		{% set rowIndex = loop.index0 %}
+		{% if loop.index0 > 0 %}
+			<a href="#row{{ loop.index0 - 1 }}" class="nav-arr nav-arr-top"><svg viewBox="0 0 70 70"><circle class="arr" cx="35" cy="35" r="34.5"/><path class="arr" d="M46.13 51.26l-19-17 19-17"/></svg></a>
+		{% endif %}
+		{% for item in row.imagesOutput %}
+		<div class="list_item">
+			<a href="{{ baseUrl }}/{{ rowIndex }}/{{ loop.index0 }}">
+				<div class="list_image"><img src="/{{ row.directory }}/{{ item.base }}" /></div>
+				
+			</a>
+		</div>
+		{% endfor %}
+	
+		{% if loop.index0 < 4 %}
+			<a href="#row{{ loop.index0 + 1 }}" class="nav-arr nav-arr-bottom">
+			<svg viewBox="0 0 70 70"><circle class="arr" cx="35" cy="35" r="34.5"/><path class="arr" d="M26.72 17.26l19 17-19 17"/></svg></a>
+		{% endif %}
+		</div>
+
+	{% endfor %}
+</div>

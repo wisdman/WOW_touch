@@ -2,6 +2,12 @@
 import marshal from '/marshal/main.js'
 import children from '/children/main.js'
 import blokada from '/blokada/main.js'
+import bookChildren from '/book-children/main.js'
+import profilaktika from '/profilaktika/main.js'
+import bron from '/bron/main.js'
+import doctors from '/doctors/main.js'
+import spies from '/spies/main.js'
+import childPics from '/child-pics2/main.js'
 
 nunjucks.configure({ autoescape: true });
 
@@ -10,7 +16,7 @@ document.querySelector("html").style.zoom = Math.min(window.innerWidth / 1920, w
 const routes = [
   {
     path: '', // optional
-    action: () => `<ul style="margin: 90px;"><li><h1><a href="/marshal">02 Маршал</a></h1></li><li><h1><a href="/blokada">03 Блокадник</a></h1></li><li><h1><a href="/children">04 Ребенок войны</a></h1></li></ul>`
+    action: () => `<ul style="margin: 90px;"><li><h1><a href="/marshal">02 Маршал</a></h1></li><li><h1><a href="/blokada">03 Блокадник</a></h1></li><li><h1><a href="/children">04 Ребенок войны</a></h1></li><li><h1><a href="/book-children">Книга Дети</a></h1></li></ul>`
   },
   {
     path: '/marshal',
@@ -51,6 +57,86 @@ const routes = [
       {
         path: '/:id',
         action: async (context) => blokada.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+      }
+    ]
+  },
+  {
+    path: '/book-children',
+    action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
+    children: [
+      {
+        path: '', // optional, matches both "/posts" and "/posts/"
+        action: async (context) => bookChildren.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0)
+      },
+      {
+        path: '/:id',
+        action: async (context) => bookChildren.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+      }
+    ]
+  },
+  {
+    path: '/profilaktika',
+    action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
+    children: [
+      {
+        path: '', // optional, matches both "/posts" and "/posts/"
+        action: async (context) => profilaktika.renderDetail(context.route.parent.path.replace(/\/$/, ""))
+      }
+    ]
+  },
+  {
+    path: '/bron',
+    action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
+    children: [
+      {
+        path: '', // optional, matches both "/posts" and "/posts/"
+        action: async (context) => bron.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0)
+      },
+      {
+        path: '/:id',
+        action: async (context) => bron.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+      }
+    ]
+  },
+  {
+    path: '/doctors',
+    action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
+    children: [
+      {
+        path: '', // optional, matches both "/posts" and "/posts/"
+        action: async (context) => doctors.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0)
+      },
+      {
+        path: '/:id',
+        action: async (context) => doctors.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+      }
+    ]
+  },
+  {
+    path: '/spies',
+    action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
+    children: [
+      {
+        path: '', // optional, matches both "/posts" and "/posts/"
+        action: async (context) => spies.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0)
+      },
+      {
+        path: '/:id',
+        action: async (context) => spies.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+      }
+    ]
+  },
+  {
+    path: '/child-pics2',
+    action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
+    children: [
+      {
+        path: '', // optional, matches both "/posts" and "/posts/"
+        action: async (context) => childPics.renderList(context.route.parent.path.replace(/\/$/, ""))
+      },
+      {
+        path: '/:row/:id',
+        action: async (context) => childPics.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.row, context.params.id)
       }
     ]
   }

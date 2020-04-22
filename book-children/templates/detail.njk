@@ -1,0 +1,6 @@
+	
+<div class="book-spread">
+	<img src="{{ baseUrl }}/images/{{ id }}.png" alt="">
+	<a href="{% if id > 0 %}{{ id - 1 }}{% endif %}" class="book-nav book-nav-left"></a>
+	<a href="{% if id < 15 %}{{ id + 1 }}{% endif %}" class="book-nav book-nav-right"></a>
+</div>

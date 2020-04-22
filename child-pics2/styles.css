@@ -1,0 +1,83 @@
+/*.content::after {
+	height: 100%;
+	width: 60px;
+	content: "";
+	display: block;
+	background: rgb(0,0,0);
+background: -webkit-linear-gradient(right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
+background: -o-linear-gradient(right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
+background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
+position: fixed;
+top: 0;
+right: 0;
+}
+
+.content::before {
+	height: 100%;
+	width: 60px;
+	content: "";
+	display: block;
+	background: rgb(0,0,0);
+background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
+background: -o-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
+background: linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
+position: fixed;
+top: 0;
+left: 0;
+}
+
+.content {
+	overflow-x: auto;
+}
+
+.content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+}
+
+.content::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}*/
+
+.list_section {
+	height: 1080px;
+}
+
+.list_item {
+	margin-bottom: 0;
+	width: calc(25% - 36px);
+}
+/*.list_item {
+	width: 329px;
+}
+*/
+.list_nav_item {
+	word-spacing: 320px;
+}
+
+.list_image {
+	height: 100%;
+}
+
+.list_image img {
+    height: 720px;
+}
+
+.nav-arr-bottom {
+    left: 50%;
+    bottom: 55px;
+}
+
+.detail_text {
+	width: 100%;
+}
+
+.child-pic-detail {
+	max-width: 100%;
+	max-height: 900px;
+}
