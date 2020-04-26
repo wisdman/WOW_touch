@@ -1,0 +1,38 @@
+
+.list_section {
+	height: 1080px;
+}
+
+.list_item {
+	margin-bottom: 0;
+	width: calc(25% - 36px);
+}
+/*.list_item {
+	width: 329px;
+}
+*/
+.list_nav_item {
+	word-spacing: 320px;
+}
+
+.list_image {
+	height: 100%;
+}
+
+.list_image img {
+    height: 720px;
+}
+
+.nav-arr-bottom {
+    left: 50%;
+    bottom: 55px;
+}
+
+.detail_text {
+	width: 100%;
+}
+
+.child-pic-detail {
+	max-width: 100%;
+	max-height: 900px;
+}

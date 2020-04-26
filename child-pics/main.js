@@ -1,7 +1,8 @@
 export default {
 	contentFile: "/images/output.json",
+	listTemplate: "/templates/list.njk",
 	detailTemplate: "/templates/detail.njk",
-	navTemplate: "/templates/nav.njk",
+	navTemplate: "/templates/nav-slide.njk",
 
 	getList: async function(url) {
 		console.log(url + this.contentFile);
@@ -16,27 +17,36 @@ export default {
 		}
 	},
 
+	getId: async function(url, id) {
+		const json = this.getList(url);
+		return json['items'][id];
+	},
+
 	renderList: async function(url) {
     	const response = await fetch(url + this.listTemplate);
 		const tpl = await response.text();
 		const content = await this.getList(url);
-		return nunjucks.renderString(tpl, {baseUrl: url, items: content});
+		return nunjucks.renderString(tpl, {content: content, baseUrl: url});
     },
 
     renderNav: async function(url) {
     	const response = await fetch(url + this.navTemplate);
 		const tpl = await response.text();
 		const content = await this.getList(url);
-		return nunjucks.renderString(tpl, {baseUrl: url, items: content});
+		return nunjucks.renderString(tpl, content);
     },
 
-    renderDetail: async function(url, id) {
+    renderDetail: async function(url, row, id) {
     	const response = await fetch(url + this.detailTemplate);
     	const nav = await fetch(url + this.navTemplate);
 		const tpl = await response.text();
 		const navTpl = await nav.text();
 		const content = await this.getList(url);
-		const item = content[id];
-		return nunjucks.renderString(nunjucks.renderString(tpl, {baseUrl: url, ...item, id: parseInt(id)}));
+		const item = content[row].imagesOutput[id];
+		const resp = await fetch(url + "/" + item.text);
+		let txt = await resp.text();
+		console.log(txt);
+		item.id = content.id = parseInt(id);
+		return nunjucks.renderString(tpl, { ...item, baseUrl: url });
     }
 }

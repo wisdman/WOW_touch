@@ -1,9 +1,6 @@
-
-<div class="list_nav content">
-<div class="list_nav_scroll" style="width: calc({{ items | length}} * 364px + 162px)">
-{% for item in items %}
-	<a id="nav-{{ index }}" class="list_nav_item{% if loop.index0 == id %} active{% endif %}" href="{{ baseUrl }}/{{loop.index0}}"><img src="{{ baseUrl }}/images/{{ loop.index0 }}.png" alt="" style="width: 200px;">
+<div class="list_nav">
+{% for index, item in items %}
+	<a id="nav-{{ index }}" class="list_nav_item{% if index == id %} active{% endif %}" href="{{ index }}">{{ item.name }}
 	</a>
 {% endfor %}
-</div>
 </div>

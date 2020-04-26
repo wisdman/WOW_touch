@@ -7,7 +7,8 @@ import profilaktika from '/profilaktika/main.js'
 import bron from '/bron/main.js'
 import doctors from '/doctors/main.js'
 import spies from '/spies/main.js'
-import childPics from '/child-pics2/main.js'
+import childPics from '/child-pics/main.js'
+import touchVideo from '/touch-video/main.js'
 
 nunjucks.configure({ autoescape: true });
 
@@ -16,7 +17,18 @@ document.querySelector("html").style.zoom = Math.min(window.innerWidth / 1920, w
 const routes = [
   {
     path: '', // optional
-    action: () => `<ul style="margin: 90px;"><li><h1><a href="/marshal">02 Маршал</a></h1></li><li><h1><a href="/blokada">03 Блокадник</a></h1></li><li><h1><a href="/children">04 Ребенок войны</a></h1></li><li><h1><a href="/book-children">Книга Дети</a></h1></li></ul>`
+    action: () => `<ul style="margin: 90px;"> \
+    <li><h1><a href="/marshal">02 Маршал</a></h1></li> \
+    <li><h1><a href="/blokada">03 Блокадник</a></h1></li> \
+    <li><h1><a href="/children">04 Ребенок войны</a></h1></li> \
+    <li><h1><a href="/book-children">Книга Дети</a></h1></li> \
+    <li><h1><a href="/bron">Работа под бронью</a></h1></li> \
+    <li><h1><a href="/doctors">Доктора</a></h1></li> \
+    <li><h1><a href="/spies">НКВД</a></h1></li> \
+    <li><h1><a href="/child-pics">Детские рисунки</a></h1></li> \
+    <li><h1><a href="/profilaktika">Профилактика</a></h1></li> \
+    <li><h1><a href="/touch-video">Видео</a></h1></li> \
+    </ul>`
   },
   {
     path: '/marshal',
@@ -127,7 +139,7 @@ const routes = [
     ]
   },
   {
-    path: '/child-pics2',
+    path: '/child-pics',
     action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
     children: [
       {
@@ -139,6 +151,16 @@ const routes = [
         action: async (context) => childPics.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.row, context.params.id)
       }
     ]
+  },
+  {
+    path: '/touch-video',
+    action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
+    children: [
+      {
+        path: '', // optional, matches both "/posts" and "/posts/"
+        action: async (context) => touchVideo.renderDetail(context.route.parent.path.replace(/\/$/, ""))
+      }
+    ]
   }
 ]
 
@@ -147,11 +169,22 @@ const router = new UniversalRouter(routes)
 router.resolve(window.location).then(html => {
   document.getElementById("app").innerHTML = html // renders: <h1>Posts</h1>
   addScroll()
+
+  document.querySelectorAll(".openInNewTab").forEach(node => {
+    node.addEventListener("click", event => {
+      event.preventDefault()
+      event.stopPropagation()
+      const current = node.getAttribute("href")
+      var win = window.open(current, 'RMH_Content')
+        win.focus();
+    }, true)
+  })
+
 })
 
 
 
-function includeCSS(aFile, aRel){
+function includeCSS(aFile, aRel) {
   let style = window.document.createElement('link')
   style.href = aFile
   style.rel = aRel || 'stylesheet'

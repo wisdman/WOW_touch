@@ -39,23 +39,5 @@ export default {
 		const content = await this.getList(url);
 		const item = content[id];
 		return nunjucks.renderString(navTpl, {baseUrl: url, items: content, id: id}) + nunjucks.renderString(tpl, {baseUrl: url, ...item, id: id});
-    },
-
-    onListRender: function() {
-    	console.log('onListRender');
-  //   	const anchors = document.querySelectorAll('a[href*="#"]')
-
-		// for (let anchor of anchors) {
-		//   anchor.addEventListener('click', function (e) {
-		//     e.preventDefault()
-		    
-		//     const blockID = anchor.getAttribute('href').substr(1)
-		    
-		//     document.getElementById(blockID).scrollIntoView({
-		//       behavior: 'smooth',
-		//       block: 'start'
-		//     })
-		//   })
-		// }
     }
 }

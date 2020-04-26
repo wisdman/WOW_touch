@@ -7,6 +7,6 @@ export default {
     	const nav = await fetch(url + this.navTemplate);
 		const tpl = await response.text();
 		const navTpl = await nav.text();
-		return nunjucks.renderString(tpl, {baseUrl: url, id: parseInt(id)});
+		return nunjucks.renderString(tpl, {baseUrl: url, id: parseInt(id), pagesNum: 19});
     }
 }
