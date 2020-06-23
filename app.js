@@ -9,6 +9,7 @@ import doctors from '/doctors/main.js'
 import spies from '/spies/main.js'
 import childPics from '/child-pics/main.js'
 import touchVideo from '/touch-video/main.js'
+import concCamp from '/concentration_camp/main.js'
 
 nunjucks.configure({ autoescape: true });
 
@@ -28,6 +29,8 @@ const routes = [
     <li><h1><a href="/child-pics">Детские рисунки</a></h1></li> \
     <li><h1><a href="/profilaktika">Профилактика</a></h1></li> \
     <li><h1><a href="/touch-video">Видео</a></h1></li> \
+    <li><h1><a href="/concentration_camp">Концлагерь</a></h1></li> \
+    
     </ul>`
   },
   {
@@ -159,6 +162,16 @@ const routes = [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
         action: async (context) => touchVideo.renderDetail(context.route.parent.path.replace(/\/$/, ""))
+      }
+    ]
+  },
+  {
+    path: '/concentration_camp',
+    action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
+    children: [
+      {
+        path: '', // optional, matches both "/posts" and "/posts/"
+        action: async (context) => concCamp.renderDetail(context.route.parent.path.replace(/\/$/, ""))
       }
     ]
   }
