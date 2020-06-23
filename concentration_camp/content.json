@@ -1,0 +1,34 @@
+{
+	"items": {
+		"1": {
+			"name": "Лаврентий Павлович Берия",
+			"image": "/marshal/images/1_Beria.png",
+			"text": "texts/1_Beria.txt",
+			"years": "29 марта 1899 г. — <br />23 декабря 1953 г."
+		},
+		"2": {
+			"name": "Георгий Константинович Жуков",
+			"image": "/marshal/images/2_Jukov.png",
+			"text": "texts/2_Zhukov.txt",
+			"years": "1 декабря 1896 г. — <br />18 июня 1974 г."
+		},
+		"3": {
+			"name": "Лев Захарович Мехлис",
+			"image": "/marshal/images/3_Mehlis.png",
+			"text": "texts/3_Mehlis.txt",
+			"years": "13 января 1889 г. — <br />13 февраля 1953 г."
+		},
+		"4": {
+			"name": "Вячеслав Михайлович Молотов",
+			"image": "/marshal/images/4_Molotov.png",
+			"text": "texts/4_Molotov.txt",
+			"years": "9 марта 1890 г. — <br />8 ноября 1986 г."
+		},
+		"5": {
+			"name": "Семен Константинович Тимошенко",
+			"image": "/marshal/images/5_Timoshenko.png",
+			"text": "texts/5_Timoshenko.txt",
+			"years": "18 февраля 1895 г. — <br />31 марта 1970 г."
+		}
+	}
+}
