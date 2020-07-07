@@ -10,6 +10,7 @@ import spies from '/spies/main.js'
 import childPics from '/child-pics/main.js'
 import touchVideo from '/touch-video/main.js'
 import concCamp from '/concentration_camp/main.js'
+import concCampSigns from '/camp_signs/main.js'
 
 nunjucks.configure({ autoescape: true });
 
@@ -172,6 +173,16 @@ const routes = [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
         action: async (context) => concCamp.renderDetail(context.route.parent.path.replace(/\/$/, ""))
+      }
+    ]
+  },
+  {
+    path: '/camp_signs',
+    action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
+    children: [
+      {
+        path: '', // optional, matches both "/posts" and "/posts/"
+        action: async (context) => concCampSigns.renderDetail(context.route.parent.path.replace(/\/$/, ""))
       }
     ]
   }
