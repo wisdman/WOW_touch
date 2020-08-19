@@ -1,0 +1,10 @@
+<div class="list_container" style="width: calc({{ items | length}} * 355px + 144px)">
+	{% for item in items %}
+		<div class="list_item">
+			<a href="{{ baseUrl }}/{{ loop.index0 }}">
+				<div class="list_image"><img src="/{{ item.imageOutput.directory }}/{{ item.imageOutput.base }}" /></div>
+				<div class="list_name">{{ item.name }}</div>
+			</a>
+		</div>
+	{% endfor %}
+</div>

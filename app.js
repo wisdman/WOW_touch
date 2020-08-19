@@ -11,6 +11,8 @@ import childPics from '/child-pics/main.js'
 import touchVideo from '/touch-video/main.js'
 import concCamp from '/concentration_camp/main.js'
 import concCampSigns from '/camp_signs/main.js'
+import concCampList from '/camp_list/main.js'
+import battles from '/battles/main.js'
 
 nunjucks.configure({ autoescape: true });
 
@@ -31,7 +33,9 @@ const routes = [
     <li><h1><a href="/profilaktika">Профилактика</a></h1></li> \
     <li><h1><a href="/touch-video">Видео</a></h1></li> \
     <li><h1><a href="/concentration_camp">Концлагерь</a></h1></li> \
-    
+    <li><h1><a href="/camp_signs">Знаки в концлагере</a></h1></li> \
+    <li><h1><a href="/camp_list">Список концлагерей</a></h1></li> \
+    <li><h1><a href="/battles">Битвы</a></h1></li> \
     </ul>`
   },
   {
@@ -183,6 +187,34 @@ const routes = [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
         action: async (context) => concCampSigns.renderDetail(context.route.parent.path.replace(/\/$/, ""))
+      }
+    ]
+  },
+  {
+    path: '/camp_list',
+    action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
+    children: [
+      {
+        path: '', // optional, matches both "/posts" and "/posts/"
+        action: async (context) => concCampList.renderList(context.route.parent.path.replace(/\/$/, ""))
+      },
+      {
+        path: '/:id',
+        action: async (context) => concCampList.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+      }
+    ]
+  },
+  {
+    path: '/battles',
+    action: (context) => includeCSS(context.route.path.replace(/\/$/, "") + '/styles.css'),
+    children: [
+      {
+        path: '', // optional, matches both "/posts" and "/posts/"
+        action: async (context) => battles.renderList(context.route.parent.path.replace(/\/$/, ""))
+      },
+      {
+        path: '/:id',
+        action: async (context) => battles.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
       }
     ]
   }

@@ -185,7 +185,7 @@ top: 100%;
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 70px;
+	font-size: 46px;
 	line-height: 85px;
 
 	color: #FFFFFF;
@@ -203,7 +203,10 @@ top: 100%;
 
 .detail_header {
 	position: fixed;
-	top: 90px;
+	padding-right: 120px;
+	width: 508px;
+	box-sizing: content-box;
+	top: 229px;
 }
 
 .detail_text {
@@ -217,8 +220,19 @@ top: 100%;
 	letter-spacing: 0.05em;
 
 	color: #FFFFFF;
-	width: 670px;
-	margin-left: 716px;
+	width: 593px;
+	margin-left: 628px;
+	margin-top: 139px;
+}
+
+.detail_images {
+	width: 400px;
+	margin-top: 139px;
+	margin-left: 120px;
+}
+.detail_images img {
+	max-width: 400px;
+	margin-bottom: 90px;
 }
 
 .arr {
@@ -262,6 +276,10 @@ top: 100%;
 
 .detail_text_block:not(:last-of-type) {
 	margin-bottom: 90px;
+}
+
+.detail_text_block img {
+	max-width: 100%;
 }
 
 a {
@@ -534,4 +552,10 @@ position: fixed;
 bottom: 0;
 left: 0;
 z-index: 20;
+}
+
+.battle_main_pic img {
+	max-width: 100%;
+	max-height: 600px;
+	margin-bottom: 90px;
 }
