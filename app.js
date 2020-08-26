@@ -227,6 +227,8 @@ router.resolve(window.location).then(html => {
 
   addScroll()
 
+  const lightbox = GLightbox({touchNavigation: true, loop: true});
+
   document.querySelectorAll(".openInNewTab").forEach(node => {
     node.addEventListener("click", event => {
       event.preventDefault()

@@ -15,17 +15,17 @@ body {
 	font-weight: lighter;
 }
 
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: transparent;
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 6px;
     background-color: transparent;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background-color: #000000;
 }
 
@@ -229,10 +229,23 @@ top: 100%;
 	width: 400px;
 	margin-top: 139px;
 	margin-left: 120px;
+	position: fixed;
+	right: 90px;
+	height: calc(100vh - 139px - 90px * 5);
+	overflow-y: scroll;
 }
 .detail_images img {
 	max-width: 400px;
-	margin-bottom: 90px;
+}
+.detail_images--link {
+	display: block;
+	position: relative;
+	margin: 45px 0;
+}
+.detail_images--plus {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
 }
 
 .arr {
