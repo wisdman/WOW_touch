@@ -38,6 +38,8 @@ export default {
 		const navTpl = await nav.text();
 		const content = await this.getList(url);
 		const item = content[id];
+		item.dates.replace("–"," ");
+		console.log(item.dates)
 		return nunjucks.renderString(navTpl, {baseUrl: url, items: content, id: id}) + nunjucks.renderString(tpl, {baseUrl: url, ...item, id: id});
     }
 }

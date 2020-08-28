@@ -64,3 +64,8 @@ left: 0;
 	word-spacing: auto;
 	justify-content: center;
 }
+
+.detail_pic {
+	height: auto;
+	border-radius: 0;
+}

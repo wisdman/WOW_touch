@@ -8,22 +8,13 @@
 				<div class="detail_name">{{ name }}</div>
 			</div>
 			<div class="detail_text">
-				<div class="detail_text_block">
-					{% for file in filesOutput %}
-						{% if file.name === 'Биография' %}
-							<h1>{{ file.name }}</h1>
-							{{ file.tpContent | safe }}
-						{% endif %}
-					{% endfor %}
-				</div>
+
 
 				{% for file in filesOutput %}
-					{% if file.name !== 'Биография' %}
 					<div class="detail_text_block">
 						<h1>{{ file.name }}</h1>
 						{{ file.tpContent | safe }}
 					</div>
-					{% endif %}
 				{% endfor %}
 				
 			</div>

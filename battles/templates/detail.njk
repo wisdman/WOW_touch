@@ -6,7 +6,12 @@
 			<div class="detail_header">
 				{% for img in imagesOutput %}
 					{% if img.name == "фото главное" %}
-					  <div class="battle_main_pic"><img src="/{{ img.directory }}/{{ img.base }}" /></div>
+					<a href="/{{ img.directory }}/{{ img.base }}" class="glightbox detail_images--link" data-gallery="gallery1">
+					  <div class="battle_main_pic"><img src="/{{ img.directory }}/{{ img.base }}" />
+					  <svg class="detail_images--plus" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24"><path d="M11.5 0C17.847 0 23 5.153 23 11.5S17.847 23 11.5 23 0 17.847 0 11.5 5.153 0 11.5 0zm0 1C17.295 1 22 5.705 22 11.5S17.295 22 11.5 22 1 17.295 1 11.5 5.705 1 11.5 1zm.5 10h6v1h-6v6h-1v-6H5v-1h6V5h1v6z"/></svg>
+					  </div>
+					  
+					  </a>
 					{% endif %}
 				{% else %}
 				Нет фото
@@ -33,8 +38,8 @@
 							{% if img.name !== "фото главное" %}
 							  <a href="/{{ img.directory }}/{{ img.base }}" class="glightbox detail_images--link" data-gallery="gallery1">
 							  <img src="/{{ img.directory }}/{{ img.base }}" />
-							  <svg class="detail_images--plus" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11.5 0c6.347 0 11.5 5.153 11.5 11.5s-5.153 11.5-11.5 11.5-11.5-5.153-11.5-11.5 5.153-11.5 11.5-11.5zm0 1c5.795 0 10.5 4.705 10.5 10.5s-4.705 10.5-10.5 10.5-10.5-4.705-10.5-10.5 4.705-10.5 10.5-10.5zm.5 10h6v1h-6v6h-1v-6h-6v-1h6v-6h1v6z"/></svg>
-							  </a>
+<svg class="detail_images--plus" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24"><path d="M11.5 0C17.847 0 23 5.153 23 11.5S17.847 23 11.5 23 0 17.847 0 11.5 5.153 0 11.5 0zm0 1C17.295 1 22 5.705 22 11.5S17.295 22 11.5 22 1 17.295 1 11.5 5.705 1 11.5 1zm.5 10h6v1h-6v6h-1v-6H5v-1h6V5h1v6z"/></svg>							 
+</a>
 							{% endif %}
 						{% endfor %}
 						</div>
