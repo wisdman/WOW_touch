@@ -68,4 +68,5 @@ left: 0;
 .detail_pic {
 	height: auto;
 	border-radius: 0;
+	width: auto;
 }
