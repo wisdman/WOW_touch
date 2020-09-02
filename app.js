@@ -37,7 +37,24 @@ const routes = [
     <li><h1><a href="/camp_signs">Знаки в концлагере</a></h1></li> \
     <li><h1><a href="/camp_list">Список концлагерей</a></h1></li> \
     <li><h1><a href="/battles">Битвы</a></h1></li> \
-    </ul>`
+    </ul>
+
+    <div style="line-height: 250%; font-size: 40px; margin-left: 50px;">
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/marshal<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/blokada<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/children<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/book-children<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/bron<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/doctors<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/spies<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/child-pics<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/touch-video<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/concentration_camp<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/camp_signs<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/camp_list<br /> \
+    --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/battles<br /> \
+    </div>
+    `
   },
   {
     path: '/marshal',
