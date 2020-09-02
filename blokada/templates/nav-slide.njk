@@ -2,6 +2,10 @@
 <div class="nav-slide">
 <div class="nav-slide-scroll">
 {% for item in items %}
+	<a id="nav-{{ index }}" class="nav-slide-item" href="{{ baseUrl }}/{{loop.index0}}">{{ item.name }}
+	</a>
+{% endfor %}
+{% for item in items %}
 	<a id="nav-{{ index }}" class="nav-slide-item{% if loop.index0 == id %} active{% endif %}" href="{{ baseUrl }}/{{loop.index0}}">{{ item.name }}
 	</a>
 {% endfor %}

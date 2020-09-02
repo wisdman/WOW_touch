@@ -15,17 +15,17 @@ body {
 	font-weight: lighter;
 }
 
-body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+*::-webkit-scrollbar-track {
+    
     background-color: transparent;
 }
 
-body::-webkit-scrollbar {
-    width: 6px;
+*::-webkit-scrollbar {
+    width: 0px;
     background-color: transparent;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background-color: #000000;
 }
 
@@ -59,7 +59,7 @@ p {
 }
 
 .list_image {
-	height: 654px;
+	height: 652px;
 }
 
 .list_item img {
@@ -186,10 +186,10 @@ top: 100%;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 46px;
-	line-height: 85px;
+	line-height: 70px;
 
 	color: #FFFFFF;
-	width: 716px;
+	width: calc(716px - 90px);
 	padding-right: 90px;
 }
 
@@ -206,7 +206,8 @@ top: 100%;
 	padding-right: 120px;
 	width: 508px;
 	box-sizing: content-box;
-	top: 229px;
+	/* top: 229px; */
+	z-index: 200;
 }
 
 .detail_text {
@@ -222,17 +223,36 @@ top: 100%;
 	color: #FFFFFF;
 	width: 593px;
 	margin-left: 628px;
-	margin-top: 139px;
+	/* margin-top: 139px; */
 }
 
 .detail_images {
 	width: 400px;
 	margin-top: 139px;
 	margin-left: 120px;
+	position: fixed;
+	right: 90px;
+	height: calc(100vh - (139px + 90px));
+	overflow-y: scroll;
+	z-index: 200;
 }
+
 .detail_images img {
 	max-width: 400px;
-	margin-bottom: 90px;
+}
+.detail_images--link {
+	display: block;
+	position: relative;
+	margin-bottom: 45px;
+}
+.detail_images--link:first-child {
+	margin-top: 0;
+}
+.detail_images--plus {
+	position: absolute;
+	right: 30px;
+	bottom: 30px;
+	width: 50px;
 }
 
 .arr {
@@ -322,17 +342,19 @@ a {
 	position: fixed;
 	right: 90px;
 	top: 50%;
-	width: 200px;
-	height: 400px;
+	width: 350px;
+	height: 310px;
 	
 	margin-top: -200px;
 	z-index: 30;
+
+	-webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 10%, rgba(0,0,0,1) 40%, rgba(0,0,0,1) 60%, rgba(0,0,0,0.25) 90%, rgba(0,0,0,0) 100%);
 }
 
 .nav-slide-scroll {
 	position: relative;
 	overflow: scroll;
-	height: 370px;
+	height: 310px;
 	scroll-snap-type: y mandatory;
 }
 
@@ -388,9 +410,14 @@ z-index: 10;
 	border-top: 1px solid #fff;
 	text-decoration: none;
 	scroll-snap-align: start;
+	transition: all 0.2s;
 }
 .nav-slide-item:first-child {
 	border-top: 0;
+}
+.nav-slide-item.active {
+	font-weight: bold;
+	font-size: 1.1em;
 }
 
 .book-spread {
@@ -498,9 +525,9 @@ z-index: 20;
 	
 }
 
-.list_item {
+/* .list_item {
 	margin-bottom: 90px;
-}
+} */
 
 /*.list_item {
 	width: 329px;
@@ -530,13 +557,13 @@ z-index: 20;
 	content: "";
 	display: block;
 	background: rgb(0,0,0);
-background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
-background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
-background: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
-position: fixed;
-top: 0;
-left: 0;
-z-index: 20;
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
+	background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
+	background: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,1) 100%);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 20;
 }
 
 .detail_text::after {
@@ -556,6 +583,47 @@ z-index: 20;
 
 .battle_main_pic img {
 	max-width: 100%;
-	max-height: 600px;
-	margin-bottom: 90px;
+	max-height: 400px;
+	/* margin-bottom: 90px; */
+}
+.glightbox-clean .gprev,
+.glightbox-clean .gnext {
+	width: 70px !important;
+	height: 70px !important;
+}
+.glightbox-clean .gprev path, .glightbox-clean .gnext path {
+	fill: none !important;
+	stroke: #fff;
+}
+.glightbox-clean .gnext svg {
+	transform: rotate(180deg);
+}
+
+.glightbox-clean .gclose, .glightbox-modern .gclose,
+.glightbox-clean .gclose svg, .glightbox-modern .gclose svg {
+	width: 56px !important;
+	height: 56px !important;
+}
+
+.fadeIn {
+    animation: fadein 0.8s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.temp-container {
+	display: none;
+}
+
+
+.zoomInLong {
+    animation: zoomin 60s ease-out infinite alternate;
+}
+
+@keyframes zoomin {
+    from { transform: scale(1); }
+    to   { transform: scale(1.5); }
 }

@@ -18,6 +18,7 @@ nunjucks.configure({ autoescape: true });
 
 document.querySelector("html").style.zoom = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
 
+
 const routes = [
   {
     path: '', // optional
@@ -222,25 +223,100 @@ const routes = [
 
 const router = new UniversalRouter(routes)
 
-router.resolve(window.location).then(html => {
-  document.getElementById("app").innerHTML = html // renders: <h1>Posts</h1>
-
-  addScroll()
-
-  document.querySelectorAll(".openInNewTab").forEach(node => {
-    node.addEventListener("click", event => {
-      event.preventDefault()
-      event.stopPropagation()
-      const current = node.getAttribute("href")
-      var win = window.open(current, 'RMH_Content')
-        win.focus();
-    }, true)
-  })
-
-})
 
 
+let pageLoaded = function(html) {
 
+    let app = document.querySelector("#app")
+    console.log(app.innerHTML.trim().length)
+    if(app.innerHTML.trim().length) {
+      let tempContainer = document.createElement("div")
+      tempContainer.classList.add("temp-container")
+      app.appendChild(tempContainer)
+      tempContainer.innerHTML = html
+      tempContainer.querySelector(".detail_item").innerHTML
+      //app.classList.add("fadeIn")
+      //app.innerHTML = html
+      let content = app.querySelector(".detail_item")
+      content.innerHTML = tempContainer.querySelector(".detail_item").innerHTML
+      content.classList.add("fadeIn")
+      content.addEventListener("animationend", () => {
+        content.classList.remove("fadeIn")
+        app.removeChild(tempContainer)
+        tempContainer = null
+      }, false)
+    }
+    else {
+      app.innerHTML = html
+      let nav = app.querySelector(".nav-slide-scroll")
+      if(nav) {
+        app.querySelector(".nav-slide-item.active").scrollIntoView({block: "center", behavior: "smooth"})
+        
+
+        
+        setNavScrollEvents(nav)
+        document.addEventListener("end-of-nav-reached", (e) => {
+          console.log("end-of-nav-reached")
+          let children = Array.prototype.slice.call(nav.childNodes);
+          for(let i=0;i<children.length;i++) {
+            let el = children.shift()
+            nav.removeChild(el)
+            el = null
+          }
+          children.forEach(function(item){
+            let cln = item.cloneNode(true)
+            nav.appendChild(cln);
+          });
+        })
+
+        document.addEventListener("begin-of-nav-reached", (e) => { 
+          let children = Array.prototype.slice.call(nav.childNodes)
+          for(let i=0;i<children.length;i++) {
+            let el = children.pop()
+            nav.removeChild(el)
+            el = null
+          }
+          children.forEach(function(item){
+            let cln = item.cloneNode(true)
+            nav.insertBefore(cln, nav.firstChild);
+          });
+          console.log("begin-of-nav-reached")
+        })
+
+
+        app.querySelectorAll(".nav-slide-item").forEach(a => {
+          a.addEventListener("click", (e) => { 
+            e.preventDefault()
+            history.pushState({}, "WOW_touch!", a.href)
+            router.resolve(window.location).then(pageLoaded)
+            app.querySelectorAll(".nav-slide-item").forEach(i => { i.classList.remove("active") })
+            a.classList.add("active")
+            a.scrollIntoView({block: "center", behavior: "smooth"})
+          }, false)
+        })  
+        addScroll()
+      }
+  }
+
+  const lightbox = GLightbox({touchNavigation: true, loop: true, svg: 
+        {
+         close: '<svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12S0 18.623 0 12 5.377 0 12 0zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11S1 18.071 1 12 5.929 1 12 1zm0 10.293L17.293 6l.707.707L12.707 12 18 17.293l-.707.707L12 12.707 6.707 18 6 17.293 11.293 12 6 6.707 6.707 6 12 11.293z"/></svg>',
+        next: '<svg viewBox="0 0 70 70"><circle class="arr" cx="35" cy="35" r="34.5"></circle><path class="arr" fill="none" stroke="#ffffff" d="M46.13 51.26l-19-17 19-17"></path></svg>',
+         prev: '<svg viewBox="0 0 70 70"><circle class="arr" cx="35" cy="35" r="34.5"></circle><path class="arr" fill="none" stroke="#ffffff" d="M46.13 51.26l-19-17 19-17"></path></svg>'
+       }});
+    
+    document.querySelectorAll(".openInNewTab").forEach(node => {
+      node.addEventListener("click", event => {
+        event.preventDefault()
+        event.stopPropagation()
+        const current = node.getAttribute("href")
+        var win = window.open(current, 'RMH_Content')
+          win.focus();
+      }, true)
+    })
+}
+
+router.resolve(window.location).then(pageLoaded)
 
 function includeCSS(aFile, aRel) {
   let style = window.document.createElement('link')
@@ -264,5 +340,37 @@ function addScroll() {
         block: 'start'
       })
     })
+  }
+}
+
+
+function setNavScrollEvents(container) {
+  'use strict';
+
+  container.onscroll = function (event) {
+      if (isEndOfElement(container)){
+          sendNewEvent('end-of-nav-reached');
+      }
+      else if (
+        isBeginningOfElement(container)
+       ) {
+        sendNewEvent('begin-of-nav-reached');
+      }
+  };
+
+  function isEndOfElement(element){
+      //visible height + pixel scrolled = total height 
+      return element.offsetHeight + element.scrollTop >= element.scrollHeight;
+  }
+
+  function isBeginningOfElement(element){
+    //visible height + pixel scrolled = total height 
+    return element.scrollTop == 0;
+}
+
+  function sendNewEvent(eventName){
+      var event = document.createEvent('Event');
+      event.initEvent(eventName, true, true);
+      document.dispatchEvent(event);
   }
 }

@@ -64,3 +64,32 @@ left: 0;
 	word-spacing: auto;
 	justify-content: center;
 }
+
+
+.detail_header {
+	top: 229px;
+}
+
+.detail_text {
+	margin-top: 139px;
+}
+
+.detail_images {
+	width: 400px;
+	margin-top: 139px;
+	margin-left: 120px;
+	position: fixed;
+	right: 90px;
+	height: calc(100vh - (139px + 90px));
+	overflow-y: scroll;
+	z-index: 10;
+}
+
+.detail_images a:first-child {
+	margin-top: 20px;
+}
+
+.battle_main_pic {
+	display: inline-block;
+    position: relative;
+}

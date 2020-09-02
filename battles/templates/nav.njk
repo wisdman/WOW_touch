@@ -1,5 +1,5 @@
 
-<div class="list_nav content">
+<div class="list_nav">
 <div class="list_nav_scroll" style="width: calc({{ items | length}} * 364px + 162px)">
 {% for item in items %}
 	<a id="nav-{{ index }}" class="list_nav_item{% if loop.index0 == id %} active{% endif %}" href="{{ baseUrl }}/{{loop.index0}}">{{ item.name }}

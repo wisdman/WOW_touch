@@ -33,10 +33,10 @@ left: 0;
 .list_container {
 	
 }
-
+/* 
 .list_item {
 	margin-bottom: 90px;
-}
+} */
 
 /*.list_item {
 	width: 329px;
@@ -63,4 +63,10 @@ left: 0;
 .list_name {
 	word-spacing: auto;
 	justify-content: center;
+}
+
+.detail_pic {
+	height: auto;
+	border-radius: 0;
+	width: auto;
 }

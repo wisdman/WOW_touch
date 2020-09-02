@@ -45,8 +45,7 @@ export default {
 		const item = content['items'][id];
 		const resp = await fetch(url + "/" + item.text);
 		let txt = await resp.text();
-		console.log(txt);
-		item.text = txt.replace(/\u2028/g,"<br />");
+		item.text = txt.replace(/\u2028/g," ");
 		item.id = content.id = parseInt(id);
 		return nunjucks.renderString(navTpl, {baseUrl: url, items: content['items'], id: id}) + nunjucks.renderString(tpl, item);
     }
