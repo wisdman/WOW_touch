@@ -276,7 +276,8 @@ let pageLoaded = function(html) {
             nav.removeChild(el)
             el = null
           }
-          children.forEach(function(item){
+          const invChildren = children.reverse()
+          invChildren.forEach(function(item){
             let cln = item.cloneNode(true)
             nav.insertBefore(cln, nav.firstChild);
           });
