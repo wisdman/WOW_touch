@@ -22,7 +22,8 @@ document.querySelector("html").style.zoom = Math.min(window.innerWidth / 1920, w
 const routes = [
   {
     path: '', // optional
-    action: () => `<ul style="margin: 90px;"> \
+    action: async (context) => { return { html: new Promise(resolve => {
+      let str = `<ul style="margin: 90px;"> \
     <li><h1><a href="/marshal">02 Маршал</a></h1></li> \
     <li><h1><a href="/blokada">03 Блокадник</a></h1></li> \
     <li><h1><a href="/children">04 Ребенок войны</a></h1></li> \
@@ -54,7 +55,9 @@ const routes = [
     --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/camp_list<br /> \
     --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/battles<br /> \
     </div>
-    `
+    `;
+      resolve(str) }),  returnPath: false }
+    }
   },
   {
     path: '/marshal',
@@ -62,11 +65,11 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => marshal.renderList(context.route.parent.path.replace(/\/$/, ""))
+        action: async (context) => { return { html: marshal.renderList(context.route.parent.path.replace(/\/$/, "")), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       },
       {
         path: '/:id',
-        action: async (context) => marshal.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+        action: async (context) => { return { html: marshal.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -76,11 +79,11 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => children.renderList(context.route.parent.path.replace(/\/$/, ""))
+        action: async (context) => { return { html: children.renderList(context.route.parent.path.replace(/\/$/, "")), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       },
       {
         path: '/:id',
-        action: async (context) => children.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+        action: async (context) => { return { html: children.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -90,11 +93,11 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => blokada.renderList(context.route.parent.path.replace(/\/$/, ""))
+        action: async (context) => { return { html: blokada.renderList(context.route.parent.path.replace(/\/$/, "")), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       },
       {
         path: '/:id',
-        action: async (context) => blokada.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+        action: async (context) => { return { html: blokada.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -104,11 +107,11 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => bookChildren.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0)
+        action: async (context) => { return { html: bookChildren.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       },
       {
         path: '/:id',
-        action: async (context) => bookChildren.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+        action: async (context) => { return { html: bookChildren.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -118,7 +121,7 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => profilaktika.renderDetail(context.route.parent.path.replace(/\/$/, ""))
+        action: async (context) => { return { html: profilaktika.renderDetail(context.route.parent.path.replace(/\/$/, "")), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -128,11 +131,11 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => bron.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0)
+        action: async (context) => { return { html: bron.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       },
       {
         path: '/:id',
-        action: async (context) => bron.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+        action: async (context) => { return { html: bron.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -142,11 +145,11 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => doctors.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0)
+        action: async (context) => { return { html: doctors.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       },
       {
         path: '/:id',
-        action: async (context) => doctors.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+        action: async (context) => { return { html: doctors.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -156,11 +159,11 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => spies.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0)
+        action: async (context) => { return { html: spies.renderDetail(context.route.parent.path.replace(/\/$/, ""), 0), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       },
       {
         path: '/:id',
-        action: async (context) => spies.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+        action: async (context) => { return { html: spies.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -170,11 +173,11 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => childPics.renderList(context.route.parent.path.replace(/\/$/, ""))
+        action: async (context) => { return { html: childPics.renderList(context.route.parent.path.replace(/\/$/, "")), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       },
       {
         path: '/:row/:id',
-        action: async (context) => childPics.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.row, context.params.id)
+        action: async (context) => { return { html: childPics.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.row, context.params.id), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -184,7 +187,7 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => touchVideo.renderDetail(context.route.parent.path.replace(/\/$/, ""))
+        action: async (context) => { return { html: touchVideo.renderDetail(context.route.parent.path.replace(/\/$/, "")), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -194,7 +197,7 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => concCamp.renderDetail(context.route.parent.path.replace(/\/$/, ""))
+        action: async (context) => { return { html: concCamp.renderDetail(context.route.parent.path.replace(/\/$/, "")), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -204,7 +207,7 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => concCampSigns.renderDetail(context.route.parent.path.replace(/\/$/, ""))
+        action: async (context) => { return { html: concCampSigns.renderDetail(context.route.parent.path.replace(/\/$/, "")), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -214,11 +217,11 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => concCampList.renderList(context.route.parent.path.replace(/\/$/, ""))
+        action: async (context) => { return { html: concCampList.renderList(context.route.parent.path.replace(/\/$/, "")), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       },
       {
         path: '/:id',
-        action: async (context) => concCampList.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+        action: async (context) => { return { html: concCampList.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   },
@@ -228,11 +231,11 @@ const routes = [
     children: [
       {
         path: '', // optional, matches both "/posts" and "/posts/"
-        action: async (context) => battles.renderList(context.route.parent.path.replace(/\/$/, ""))
+        action: async (context) => { return { html: battles.renderList(context.route.parent.path.replace(/\/$/, "")), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       },
       {
         path: '/:id',
-        action: async (context) => battles.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id)
+        action: async (context) => { return { html: battles.renderDetail(context.route.parent.path.replace(/\/$/, ""), context.params.id), returnPath: context.route.parent.path.replace(/\/$/, "")} }
       }
     ]
   }
@@ -242,7 +245,7 @@ const router = new UniversalRouter(routes)
 
 
 
-let pageLoaded = function(html) {
+let pageLoaded = async function(result) {
 
     let app = document.querySelector("#app")
     console.log(app.innerHTML.trim().length)
@@ -250,12 +253,14 @@ let pageLoaded = function(html) {
       let tempContainer = document.createElement("div")
       tempContainer.classList.add("temp-container")
       app.appendChild(tempContainer)
-      tempContainer.innerHTML = html
+      let htmlString = await result.html
+      tempContainer.innerHTML = htmlString
       tempContainer.querySelector(".detail_item").innerHTML
       //app.classList.add("fadeIn")
       //app.innerHTML = html
       let content = app.querySelector(".detail_item")
       content.innerHTML = tempContainer.querySelector(".detail_item").innerHTML
+      window.scrollTo( 0, 0 );
       content.classList.add("fadeIn")
       content.addEventListener("animationend", () => {
         content.classList.remove("fadeIn")
@@ -264,7 +269,9 @@ let pageLoaded = function(html) {
       }, false)
     }
     else {
-      app.innerHTML = html
+      
+      let htmlString = await result.html
+      app.innerHTML = htmlString
       let nav = app.querySelector(".nav-slide-scroll")
       if(nav) {
         app.querySelector(".nav-slide-item.active").scrollIntoView({block: "center", behavior: "smooth"})
@@ -332,6 +339,22 @@ let pageLoaded = function(html) {
           win.focus();
       }, true)
     })
+
+  if (result.returnPath)  {
+    let timer = new Date()
+
+    window.addEventListener("pointerup", () => {
+        timer = new Date()
+    }, { passive:true });
+
+    (function loop() {
+        if((new Date() - timer) >= 100*60*5) {
+            timer = new Date();
+            window.location = result.returnPath
+        }
+        setTimeout(loop, 100*60*5)
+    })()
+  }
 }
 
 router.resolve(window.location).then(pageLoaded)
