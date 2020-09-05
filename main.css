@@ -13,6 +13,7 @@ body {
 	background-color: #000;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: lighter;
+	user-select: none;
 }
 
 *::-webkit-scrollbar-track {

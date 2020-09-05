@@ -40,7 +40,7 @@ const routes = [
     <li><h1><a href="/battles">Битвы</a></h1></li> \
     </ul>
 
-    <div style="line-height: 250%; font-size: 40px; margin-left: 50px;">
+    <div style="line-height: 250%; font-size: 40px; margin-left: 50px; user-select: text">
     --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/marshal<br /> \
     --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/blokada<br /> \
     --kiosk --disable-pinch --overscroll-history-navigation=0 http://ss.expo.rmh.local/children<br /> \
