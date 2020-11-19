@@ -2,6 +2,7 @@
   {
     "name": "Битва за Берлин",
     "directory": "battles/src/Битва за Берлин",
+    "order": 10,
     "filesOutput": [
       {
         "root": "D:\\",
@@ -44,6 +45,7 @@
   {
     "name": "Битва за Ленинград",
     "directory": "battles/src/Битва за Ленинград",
+    "order": 3,
     "filesOutput": [
       {
         "root": "D:\\",
@@ -94,6 +96,7 @@
   {
     "name": "Битва за Москву",
     "directory": "battles/src/Битва за Москву",
+    "order": 5,
     "filesOutput": [
       {
         "root": "D:\\",
@@ -136,6 +139,7 @@
   {
     "name": "Битва за Ростов",
     "directory": "battles/src/Битва за Ростов",
+    "order": 4,
     "filesOutput": [
       {
         "root": "D:\\",
@@ -178,6 +182,7 @@
   {
     "name": "Битва под Тихвином",
     "directory": "battles/src/Битва под Тихвином",
+    "order": 6,
     "filesOutput": [
       {
         "root": "D:\\",
@@ -212,6 +217,7 @@
   {
     "name": "Киевское сражение",
     "directory": "battles/src/Киевское сражение",
+    "order": 2,
     "filesOutput": [
       {
         "root": "D:\\",
@@ -254,6 +260,7 @@
   {
     "name": "Курская битва",
     "directory": "battles/src/Курская битва",
+    "order": 8,
     "filesOutput": [
       {
         "root": "D:\\",
@@ -296,6 +303,7 @@
   {
     "name": "Операция Багратион",
     "directory": "battles/src/Операция Багратион",
+    "order": 9,
     "filesOutput": [
       {
         "root": "D:\\",
@@ -338,6 +346,7 @@
   {
     "name": "Смоленское сражение",
     "directory": "battles/src/Смоленское сражение",
+    "order": 1,
     "filesOutput": [
       {
         "root": "D:\\",
@@ -380,6 +389,7 @@
   {
     "name": "Сталинградская битва",
     "directory": "battles/src/Сталинградская битва",
+    "order": 7,
     "filesOutput": [
       {
         "root": "D:\\",

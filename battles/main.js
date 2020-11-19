@@ -11,6 +11,9 @@ export default {
 		if (response.ok) { // если HTTP-статус в диапазоне 200-299
 		  // получаем тело ответа (см. про этот метод ниже)
 		  let json = await response.json();
+
+			json.sort((a, b) => (a.order > b.order) ? 1 : -1);
+
 		  return json;
 		} else {
 		  console.log("Ошибка HTTP: " + response.status);
