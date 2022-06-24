@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "glightbox": "^3.0.3",
-    "jsdom": "^16.3.0",
+    "jsdom": "^16.5.0",
     "local-web-server": "^4.0.0",
     "mammoth": "^1.4.9",
     "normalize.css": "^8.0.1",
